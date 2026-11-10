@@ -4,20 +4,28 @@ public class ArrayNilai29 {
     public static void main(String[] args) {
         int[] nilaiAkhir = new int[10];
         Scanner input = new Scanner(System.in);
+        int jumlahLulus = 0;
+        int jumlahTidakLulus = 0;
 
-        int no = 1;
-        for (int nilai : nilaiAkhir) {
-            System.out.print("Masukkan nilai mahasiswa ke-" + no + ": ");
-            nilai = input.nextInt();
-            no++;
+        for (int i = 0; i < nilaiAkhir.length; i++) {
+            System.out.print("Masukkan nilai mahasiswa ke-" + (i + 1) + ": ");
+            nilaiAkhir[i] = input.nextInt();
         }
 
-        no = 1;
-        for (int nilai : nilaiAkhir) {
-            String status = (nilai > 70) ? "LULUS" : "TIDAK LULUS";
-            System.out.println("Mahasiswa ke-" + no + ": " + nilai + " (" + status + ")");
-            no++;
+        for (int i = 0; i < nilaiAkhir.length; i++) {
+            String status;
+            if (nilaiAkhir[i] > 70) {
+                status = "LULUS";
+                jumlahLulus++;
+            } else {
+                status = "TIDAK LULUS";
+                jumlahTidakLulus++;
+            }
+            System.out.println("Mahasiswa ke-" + (i + 1) + ": " + nilaiAkhir[i] + " (" + status + ")");
         }
+
+        System.out.println("Jumlah mahasiswa lulus: " + jumlahLulus);
+        System.out.println("Jumlah mahasiswa tidak lulus: " + jumlahTidakLulus);
 
         input.close();
     }
